@@ -53,7 +53,9 @@ angular.module('bootstrap.fileField',[])
               }
 
               if(passed){
-                
+                scope.$evalAsync(function(){
+                    error.assign(scope, undefined);
+                  });
                 ngModel.$setViewValue(event.target.files[0]);
                 if(attrs.preview){
                   var reader = new FileReader();
